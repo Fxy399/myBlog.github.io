@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -235,7 +235,10 @@
     <a href="/2021/04/10/Java-Collection-%E9%9B%86%E5%90%88%E4%B9%8B-List-%E5%88%86%E6%9E%90/" rel="prev" title="Java Collection 集合之 List 分析">
       <i class="fa fa-chevron-left"></i> Java Collection 集合之 List 分析
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/17/Spring-IOC-%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" rel="next" title="Spring IOC 容器源码阅读">
+      Spring IOC 容器源码阅读 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -294,7 +297,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-概述"><span class="nav-number">1.</span> <span class="nav-text">Map 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-源码分析"><span class="nav-number">2.</span> <span class="nav-text">HashMap 源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-的数据结构"><span class="nav-number">2.1.</span> <span class="nav-text">HashMap 的数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-是如何初始化的"><span class="nav-number">2.2.</span> <span class="nav-text">HashMap 是如何初始化的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-如何-put-数据的"><span class="nav-number">2.3.</span> <span class="nav-text">HashMap 如何 put 数据的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash-算法原理以及容量必须为2次幂的原因"><span class="nav-number">2.4.</span> <span class="nav-text">hash 算法原理以及容量必须为2次幂的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表和红黑树"><span class="nav-number">2.5.</span> <span class="nav-text">链表和红黑树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随便讲讲-LinkedHashMap、TreeMap-与-ConcurrentHashMap"><span class="nav-number">3.</span> <span class="nav-text">随便讲讲 LinkedHashMap、TreeMap 与 ConcurrentHashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedkedHashMap-数据结构与应用场景"><span class="nav-number">3.1.</span> <span class="nav-text">LinkedkedHashMap 数据结构与应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeMap-的应用场景"><span class="nav-number">3.2.</span> <span class="nav-text">TreeMap 的应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcurrentHashMap-概述"><span class="nav-number">3.3.</span> <span class="nav-text">ConcurrentHashMap 概述</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">Map 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">HashMap 源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">HashMap 的数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-%E6%98%AF%E5%A6%82%E4%BD%95%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84"><span class="nav-number">2.2.</span> <span class="nav-text">HashMap 是如何初始化的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-%E5%A6%82%E4%BD%95-put-%E6%95%B0%E6%8D%AE%E7%9A%84"><span class="nav-number">2.3.</span> <span class="nav-text">HashMap 如何 put 数据的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E5%AE%B9%E9%87%8F%E5%BF%85%E9%A1%BB%E4%B8%BA2%E6%AC%A1%E5%B9%82%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.4.</span> <span class="nav-text">hash 算法原理以及容量必须为2次幂的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="nav-number">2.5.</span> <span class="nav-text">链表和红黑树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%8F%E4%BE%BF%E8%AE%B2%E8%AE%B2-LinkedHashMap%E3%80%81TreeMap-%E4%B8%8E-ConcurrentHashMap"><span class="nav-number">3.</span> <span class="nav-text">随便讲讲 LinkedHashMap、TreeMap 与 ConcurrentHashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedkedHashMap-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">3.1.</span> <span class="nav-text">LinkedkedHashMap 数据结构与应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeMap-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">3.2.</span> <span class="nav-text">TreeMap 的应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcurrentHashMap-%E6%A6%82%E8%BF%B0"><span class="nav-number">3.3.</span> <span class="nav-text">ConcurrentHashMap 概述</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -309,14 +312,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -397,6 +400,19 @@
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   

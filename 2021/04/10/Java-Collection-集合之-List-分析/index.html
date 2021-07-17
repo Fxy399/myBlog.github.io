@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -310,7 +310,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前情"><span class="nav-number">1.</span> <span class="nav-text">前情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList-源码解析"><span class="nav-number">2.</span> <span class="nav-text">ArrayList 源码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化一个-ArrayList-数组"><span class="nav-number">2.1.</span> <span class="nav-text">初始化一个 ArrayList 数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#往-ArrayList-中添加元素"><span class="nav-number">2.2.</span> <span class="nav-text">往 ArrayList 中添加元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#modCount-作用"><span class="nav-number">2.3.</span> <span class="nav-text">modCount 作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不推荐使用-Vector-的原因"><span class="nav-number">3.</span> <span class="nav-text">不推荐使用 Vector 的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全的-List-推荐使用-CopyOnWriteArrayList"><span class="nav-number">4.</span> <span class="nav-text">线程安全的 List 推荐使用 CopyOnWriteArrayList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CopyOnWrite-思想"><span class="nav-number">4.1.</span> <span class="nav-text">CopyOnWrite 思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CopyOnWriteArrayList-add-方法源码分析"><span class="nav-number">4.2.</span> <span class="nav-text">CopyOnWriteArrayList add 方法源码分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CopyOnWriteArrayList-的缺点"><span class="nav-number">4.3.</span> <span class="nav-text">CopyOnWriteArrayList 的缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList-和-LinkedList-使用场景分析"><span class="nav-number">5.</span> <span class="nav-text">ArrayList 和 LinkedList 使用场景分析</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%83%85"><span class="nav-number">1.</span> <span class="nav-text">前情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">ArrayList 源码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AA-ArrayList-%E6%95%B0%E7%BB%84"><span class="nav-number">2.1.</span> <span class="nav-text">初始化一个 ArrayList 数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%80-ArrayList-%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0"><span class="nav-number">2.2.</span> <span class="nav-text">往 ArrayList 中添加元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#modCount-%E4%BD%9C%E7%94%A8"><span class="nav-number">2.3.</span> <span class="nav-text">modCount 作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-Vector-%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">3.</span> <span class="nav-text">不推荐使用 Vector 的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84-List-%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-CopyOnWriteArrayList"><span class="nav-number">4.</span> <span class="nav-text">线程安全的 List 推荐使用 CopyOnWriteArrayList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CopyOnWrite-%E6%80%9D%E6%83%B3"><span class="nav-number">4.1.</span> <span class="nav-text">CopyOnWrite 思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CopyOnWriteArrayList-add-%E6%96%B9%E6%B3%95%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-number">4.2.</span> <span class="nav-text">CopyOnWriteArrayList add 方法源码分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CopyOnWriteArrayList-%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">4.3.</span> <span class="nav-text">CopyOnWriteArrayList 的缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList-%E5%92%8C-LinkedList-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E5%88%86%E6%9E%90"><span class="nav-number">5.</span> <span class="nav-text">ArrayList 和 LinkedList 使用场景分析</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -325,14 +325,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -413,6 +413,19 @@
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   
